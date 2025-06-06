@@ -8,6 +8,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.user = require("./models/userModel")(sequelize, DataTypes);
+db.task = require("./models/taskModel")(sequelize, DataTypes);
 
 sequelize
   .authenticate()
