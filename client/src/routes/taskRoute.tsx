@@ -16,11 +16,11 @@ const taskRoute = createBrowserRouter([
         element: <CreateTaskPage />
     },
     {
-        path: "/single-task",
+        path: "/single-task/:id",
         element: <SingleTaskPage />
     },
     {
-        path: "/update-task",
+        path: "/update-task/:id",
         element: <UpdateTaskPage />
     },
 ]);

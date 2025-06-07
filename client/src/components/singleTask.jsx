@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleTask = () => {
+const SingleTask = ({ task }) => {
   return (
     <Link to="/single-task">
       <div className="group backdrop-blur-xl bg-white/90 border border-white/30 rounded-2xl p-8 shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
@@ -9,7 +9,7 @@ const SingleTask = () => {
         <div className="flex justify-between items-start mb-6">
           <div className="flex-1">
             <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
-              Complete Project Documentation
+              {task.taskName}
             </h3>
             <div className="w-12 h-1 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
           </div>
@@ -25,9 +25,7 @@ const SingleTask = () => {
         {/* Description Section */}
         <div className="mb-6">
           <p className="text-gray-600 leading-relaxed text-sm">
-            Write comprehensive documentation for the new feature including API
-            endpoints, user guides, and implementation examples for the
-            development team.
+            {task.taskDescription}
           </p>
         </div>
 
@@ -35,7 +33,7 @@ const SingleTask = () => {
         <div className="flex items-center justify-between text-xs text-gray-400 border-t border-gray-200 pt-4">
           <div className="flex items-center space-x-2">
             <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-            <span>Task ID: #001</span>
+            <span>Task ID: {task.id}</span>
           </div>
           <span className="bg-gray-100 px-2 py-1 rounded">Priority: High</span>
         </div>
