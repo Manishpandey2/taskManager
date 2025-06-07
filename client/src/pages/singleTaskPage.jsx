@@ -1,9 +1,10 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/footer";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const SingleTaskPage = () => {
+  const navigate = useNavigate();
   const [task, setTask] = useState({});
   const { id } = useParams();
   const fetchSingleTask = async () => {
@@ -13,6 +14,16 @@ const SingleTaskPage = () => {
   useEffect(() => {
     fetchSingleTask();
   }, []);
+
+  const deleteTask = async () => {
+    const response = await axios.delete("http://localhost:3000/task/" + id);
+
+    if (response.status === 200) {
+      navigate("/");
+    } else {
+      alert("Something went wrong");
+    }
+  };
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 py-12 px-4 sm:px-6 lg:px-8">
@@ -81,7 +92,10 @@ const SingleTaskPage = () => {
                       </svg>
                     </button>
                   </Link>
-                  <button className="p-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-colors border border-white/30">
+                  <button
+                    onClick={deleteTask}
+                    className="p-3 bg-white/20 backdrop-blur-sm rounded-xl hover:bg-white/30 transition-colors border border-white/30"
+                  >
                     <svg
                       className="w-5 h-5"
                       fill="none"
