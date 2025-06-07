@@ -5,7 +5,7 @@ const taskModel = (sequelize, DataTypes) => {
       allowNull: false,
     },
     taskDescription: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     taskStatus: {
