@@ -19,7 +19,7 @@ const HomePage = () => {
       <Navbar />
       <div>
         {task.map((tasks) => {
-          return <SingleTask task={tasks} />;
+          return <SingleTask task={tasks} key={tasks.id} />;
         })}
       </div>
       <Footer />

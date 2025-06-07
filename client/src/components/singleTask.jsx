@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const SingleTask = ({ task }) => {
   return (
-    <Link to="/single-task">
+    <Link to={`/single-task/${task.id}`}>
       <div className="group backdrop-blur-xl bg-white/90 border border-white/30 rounded-2xl p-8 shadow-2xl hover:shadow-purple-500/25 transition-all duration-500 hover:scale-105 hover:-translate-y-2">
         {/* Header Section */}
         <div className="flex justify-between items-start mb-6">
